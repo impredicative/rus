@@ -17,7 +17,7 @@ mod schema {
     }
 }
 
-#[database("sqlite_logs")]
+#[database("sqlite_data")]
 pub struct DbConn(diesel::SqliteConnection);
 
 #[derive(Queryable, Insertable, Serialize, Deserialize)]
