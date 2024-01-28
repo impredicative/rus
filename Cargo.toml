@@ -12,3 +12,4 @@ just = "1.23.0"
 rocket = "0.5.0"
 diesel = { version = "2.1.4", features = ["sqlite"] }
 serde = { version = "1.0.196", features = ["derive"] }
+rocket_sync_db_pools = "0.1.0"
