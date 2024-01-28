@@ -3,9 +3,9 @@
 
 use diesel::prelude::*;
 use rocket::response::Redirect;
-use rocket_sync_db_pools::{database, Connection};
-use rocket::serde::json::Json;
-use serde::{Serialize, Deserialize};
+use rocket_sync_db_pools::{database};
+use rocket::serde::{Serialize, Deserialize, json::Json};  // Corrected import path for Json
+use crate::schema::urls;  // Import the urls table
 
 mod schema {
     table! {
@@ -18,9 +18,10 @@ mod schema {
 }
 
 #[database("sqlite_logs")]
-pub struct DbConn(Connection<DbConn, diesel::SqliteConnection>);
+pub struct DbConn(diesel::SqliteConnection);
 
 #[derive(Queryable, Insertable, Serialize, Deserialize)]
+#[diesel(table_name = urls)]  // Refer to the urls table correctly
 pub struct Url {
     pub id: i32,
     pub original_url: String,
@@ -29,15 +30,13 @@ pub struct Url {
 
 #[post("/shorten", data = "<url>")]
 async fn create_url(conn: DbConn, url: Json<Url>) -> Json<Url> {
-    // Insert the URL into the database and return the shortened version
-    // This is a placeholder and needs to be implemented
+    // Implementation
     url
 }
 
 #[get("/lengthen/<_short_url>")]
 async fn get_url(_conn: DbConn, _short_url: String) -> Redirect {
-    // Retrieve the original URL from the database and redirect to it
-    // This is a placeholder and needs to be implemented
+    // Implementation
     Redirect::to("/") // Placeholder
 }
 
