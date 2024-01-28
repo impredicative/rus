@@ -4,7 +4,7 @@
 use diesel::prelude::*;
 use rocket::response::Redirect;
 use rocket_sync_db_pools::{database};
-use rocket::serde::{Serialize, Deserialize, json::Json};
+use rocket::serde::{json::Json, Deserialize, Serialize};
 use crate::schema::urls;
 
 mod schema {
