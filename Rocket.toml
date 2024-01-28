@@ -1,2 +1,2 @@
 [default.databases.sqlite_data]
-url = "sqlite:sqlite.db"
+url = "sqlite.db"
