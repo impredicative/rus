@@ -4,8 +4,8 @@
 use diesel::prelude::*;
 use rocket::response::Redirect;
 use rocket_sync_db_pools::{database};
-use rocket::serde::{Serialize, Deserialize, json::Json};  // Corrected import path for Json
-use crate::schema::urls;  // Import the urls table
+use rocket::serde::{Serialize, Deserialize, json::Json};
+use crate::schema::urls;
 
 mod schema {
     table! {
